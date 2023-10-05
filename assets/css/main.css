@@ -62,10 +62,10 @@
       color: var(--dark-slate-grey);
     }
     .newslater__description {
-      margin-top: 3.6rem;
+      margin-top: 2.6rem;
     }
     .newslater-list {
-      margin-top: 2.6rem;
+      margin-top: 1.6rem;
     }
     .newslater-list__item {
       margin-top: 1.6rem;
@@ -78,15 +78,15 @@
     .form {
       display: flex;
       flex-direction: column;
-      gap: 2.4rem;
+      gap: 1.6rem;
 
       flex: 1;
-      margin-top: 3.6rem;
+      margin-top: 2.6rem;
     }
     .form__label {
       display: flex;
       justify-content: space-between;
-      font-weight: 700;
+      font-weight: 400;
     }
     
     .form__input, .primary-button {
@@ -177,6 +177,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 2.4rem;
       }
       .main-container {
         flex-direction: row-reverse;
@@ -188,13 +189,17 @@
       }
       .image {
         background-image: url("../images/illustration-sign-up-desktop.svg");
-        height: 53.9rem;
-        width: auto;
+        height: auto;
+        max-width: 40rem;
         flex-basis: 45%;
         border-radius: 2.4rem;
       }
       .newslater {
         flex-basis: 55%;
+        padding: 4.6rem 3.6rem 0;
+      }
+      .newslater__title {
+        margin-top: 2.8rem;
       }
       .primary-button {
         margin-top: 0;
@@ -210,7 +215,12 @@
         margin-top: 0;
       }
       .attribution {
-        margin: auto 0 1.2rem 0;
-        padding: 0;
+        margin: 0;
+        padding: 1.6rem 0;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      .image {
+        height: 53.9rem;
       }
     }

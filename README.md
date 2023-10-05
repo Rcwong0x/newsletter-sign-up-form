@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [View solution](https://github.com/Rcwong0x/newsletter-sign-up-form)
-- Live Site URL: [View live site](https://your-live-site-url.com)
+- Solution URL: [View solution](https://www.frontendmentor.io/solutions/newsletter-sign-up-form-html-css-and-js-DvJCpWoNXc)
+- Live Site URL: [View live site](https://rcwong0x.github.io/newsletter-sign-up-form/)
 
 ## My process
 

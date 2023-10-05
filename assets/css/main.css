@@ -57,7 +57,7 @@
       padding: 3.6rem 1.6rem;
     }
     .newslater__title, .tanks__title {
-      font-size: 3rem;
+      font-size: 5rem;
       font-weight: 700;
       color: var(--dark-slate-grey);
     }
@@ -191,6 +191,7 @@
         height: 53.9rem;
         width: auto;
         flex-basis: 45%;
+        border-radius: 2.4rem;
       }
       .newslater {
         flex-basis: 55%;

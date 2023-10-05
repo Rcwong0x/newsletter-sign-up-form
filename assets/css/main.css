@@ -1,9 +1,12 @@
     :root {
-      --primary-color: hsl(4, 100%, 67%);
+      --error-color: hsl(4, 100%, 67%);
       --dark-slate-grey: hsl(234, 29%, 20%);
       --charcoal-grey: hsl(235, 18%, 26%);
       --grey: hsl(231, 7%, 60%);
       --white: hsl(0, 0%, 100%);
+
+      --linear-gradient-hover-btn: linear-gradient(90deg, rgba(255,83,121,1) 0%, rgba(255,104,61,1) 100%);
+
 
       font-family: 'Roboto', sans-serif;
       font-family: 'Space Grotesk', sans-serif;
@@ -53,7 +56,7 @@
       flex-basis: 70%;
       padding: 3.6rem 1.6rem;
     }
-    .newslater__title {
+    .newslater__title, .tanks__title {
       font-size: 3rem;
       font-weight: 700;
       color: var(--dark-slate-grey);
@@ -81,9 +84,12 @@
       margin-top: 3.6rem;
     }
     .form__label {
+      display: flex;
+      justify-content: space-between;
       font-weight: 700;
     }
-    .form__input, .form__button {
+    
+    .form__input, .primary-button {
       width: 100%;
       height: auto;
       padding: 2rem;
@@ -96,10 +102,47 @@
       color: var(--grey);
       border: 1px solid var(--grey);
     }
-    .form__button {
+    .primary-button {
       margin-top: auto;
+      margin-bottom: 1.6rem;
       color: var(--white);
       background-color: var(--dark-slate-grey);
+      cursor: pointer;
+    }
+    .primary-button:hover {
+      background: var(--linear-gradient-hover-btn);
+      border: 1px solid var(--error-color);
+      box-shadow: 0px 3px 19px -1px rgba(255,97,86,0.75);
+      transition: 0.3s;
+    }
+    .primary-button:active {
+      transform: scale(1.015);
+      transition: 0.3s;
+    }
+    .tanks-subscribe {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 2.4rem;
+      
+
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+
+      background-color: var(--white);
+      padding: 1.6rem;
+      
+    }
+    .tanks__image {
+      width: 6.4rem;
+      height: 6.4rem;
+      margin-top: 3.6rem;
+
+    }
+    .tanks__text {
+      line-height: 2.6rem;
     }
     .attribution {
       color: var(--white);
@@ -113,6 +156,21 @@
     .d-none {
       display: none;
     }
+    .overflow-hidden {
+      overflow: hidden;
+    }
+    .input--error {
+      color: var(--error-color);
+      border: solid 1px var(--error-color);
+      background-color: hsl(4, 100%, 95%);
+    }
+    .input--error::placeholder {
+      color: var(--error-color);
+    }
+    .msg--error {
+      color: var(--error-color);
+    }
+    
     @media screen and (min-width: 1024px) {
       body {
         display: flex;
@@ -137,7 +195,17 @@
       .newslater {
         flex-basis: 55%;
       }
-      .form__button {
+      .primary-button {
+        margin-top: 0;
+      }
+      .tanks-subscribe {
+        position: static;
+        max-width: 50rem;
+        border-radius: 2.4rem;
+        margin-top: auto;
+        padding: 3.8rem;
+      }
+      .tanks__image {
         margin-top: 0;
       }
       .attribution {

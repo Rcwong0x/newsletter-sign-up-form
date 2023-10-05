@@ -27,26 +27,84 @@
       </ul>
       
       <form action="#" class="form">
-        <label for="email" class="form__label">Email address</label> 
-        <input class="form__input" type="email" name="email" id="email" placeholder="email@company.com" required>
+        <label for="email" class="form__label"><span>Email address</span> <span class="msg--error d-none">Valid email required</span></label> 
+        <input class="form__input" type="email" name="email" id="email" placeholder="email@company.com" autocomplete="on" required>
         
-        <button class="form__button">Subscribe to monthly newsletter</button>
+        <button id="btn-subscribe" class="primary-button">Subscribe to monthly newsletter</button>
       </form>
     </article>
   </main>
 
   <article class="tanks-subscribe d-none">
-    <h2>Thanks for subscribing!</h2>
-    <p>
+    <img class="tanks__image" src="./assets/images/icon-success.svg" alt="Success icon" aria-hidden="true">
+    <h2 class="tanks__title">Thanks for <br>subscribing!</h2>
+    <p  class="tanks__text">
       A confirmation email has been sent to ash@loremcompany.com. 
       Please open it and click the button inside to confirm your subscription.
     </p>
-    <button>Dismiss message</button>
+    <button id="btn-dismiss" class="primary-button">Dismiss message</button>
   </article>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a target="_blank" href="https://github.com/Rcwong0x">Rcwong0x</a>.
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputEmail = document.querySelector("#email");
+      const btnSubmit = document.querySelector("#btn-subscribe");
+      const btnDismiss = document.querySelector("#btn-dismiss");
+      
+      const mainContainer = document.querySelector(".main-container");
+      const tankForSubsc = document.querySelector(".tanks-subscribe");
+      const body = document.querySelector("body");
+
+
+      function validateEmail (inputValue) {
+        const regExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        return regExp.test(inputValue);
+      }
+
+      function showTanksForSub() {
+        body.classList.add("overflow-hidden");
+        mainContainer.classList.add("d-none");
+
+        tankForSubsc.classList.remove("d-none");
+      }
+      function hideTanksForSub() {
+        // body.classList.remove("overflow-hidden");
+        // mainContainer.classList.remove("d-none");
+
+        // tankForSubsc.classList.add("d-none");
+        window.location.reload();
+      }
+
+      function showError(input) {
+        input.classList.add("input--error");
+        document.querySelector(".msg--error").classList.remove("d-none");
+        
+        setTimeout(() =>{
+          input.classList.remove("input--error");
+          document.querySelector(".msg--error").classList.add("d-none");
+        }, 2500);
+      }
+
+      btnSubmit.addEventListener("click", e => {
+        e.preventDefault();
+
+        const inputEmailIsValid = validateEmail(inputEmail.value);
+
+        if(inputEmailIsValid){
+          showTanksForSub();
+          return;
+        } 
+        showError(inputEmail);
+      });
+
+      btnDismiss.addEventListener("click", hideTanksForSub);
+
+    });
+  </script>
 </body>
 </html>
